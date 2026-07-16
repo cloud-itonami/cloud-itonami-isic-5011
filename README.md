@@ -59,6 +59,70 @@ Resolves via [`kotoba-lang/industry`](https://github.com/kotoba-lang/industry)
 See [`docs/business-model.md`](docs/business-model.md) and
 [`docs/operator-guide.md`](docs/operator-guide.md).
 
+## R0 implementation: FerryOperationsAdvisor ⊣ Maritime Safety Governor
+
+The R0 slice implements a passenger-ferry OPERATIONS COORDINATION
+actor -- NOT a maritime-safety authority and NOT vessel control. Every
+proposal this actor makes is `:effect :propose`; it never issues a real
+mutation or a sail-clearance decision. Four governed ops, closed
+allowlist:
+
+- `:log-voyage-record` -- sailing / passenger-manifest / incident data
+  logging. The only op that may ever auto-commit (no capital/safety
+  risk).
+- `:schedule-sailing-operation` -- sailing-schedule / berth coordination
+  proposal, HARD-gated on the sailing's own vessel/voyage certification
+  record and vessel IMO-number structural validity, and citing an
+  official jurisdiction spec-basis (`ferry.facts`). Always needs human
+  approval.
+- `:flag-maritime-safety-concern` -- surfaces a seaworthiness / weather
+  / passenger-overcrowding concern. ALWAYS escalates to human sign-off,
+  at every phase, by two independent layers (`ferry.governor`'s
+  high-stakes gate AND `ferry.phase`'s phase table never puts it in any
+  `:auto` set) -- this is a REPORT, never a resolution or an override.
+- `:coordinate-maintenance` -- vessel maintenance coordination proposal.
+  Always needs human approval.
+
+Any proposal that reads as directly finalizing a sail-clearance /
+weather-hold / maritime-safety override is a HARD, PERMANENT block
+(`:scope-exclusion-sail-clearance`) -- this actor structurally never
+holds that authority. See
+[`docs/adr/0001-architecture.md`](docs/adr/0001-architecture.md) for the
+full design record, including the fleet-wide scope-exclusion self-trip
+bug class this build fixes by construction.
+
+## Run
+
+```bash
+clojure -M:dev:run     # walk the happy paths + every HARD-hold scenario through the actor
+clojure -M:dev:test    # governor contract · phase invariants · store parity · registry conformance · facts coverage · scope-exclusion regression
+clojure -M:lint        # clj-kondo (errors fail; CI mirrors this)
+```
+
+## Layout
+
+| File | Role |
+|---|---|
+| `src/ferry/store.cljc` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db` via `kotoba-lang/langchain-store`) + append-only audit ledger + schedule/concern/maintenance history |
+| `src/ferry/registry.cljc` | Sailing-schedule / concern-filing / maintenance-coordination draft records, plus the self-contained `imo-number-valid?` structural check (honest reapplication of `cloud-itonami-isic-5020`'s SOLAS / IMO A.600(15) scheme) |
+| `src/ferry/facts.cljc` | Per-jurisdiction passenger-vessel safety-certification catalog with an official spec-basis citation per entry, honest coverage reporting |
+| `src/ferry/ferryadvisor.cljc` | **FerryOperationsAdvisor** -- `mock-advisor` ‖ `llm-advisor`; voyage-record / schedule / concern / maintenance proposals |
+| `src/ferry/governor.cljc` | **Maritime Safety Governor** -- 7 HARD checks (op-not-allowed · effect-not-propose · scope-exclusion-sail-clearance (permanent) · certification-incomplete · imo-number-invalid · no-spec-basis · already-scheduled) + 1 high-stakes gate + 1 soft confidence gate |
+| `src/ferry/phase.cljc` | **Phase 0→3** -- read-only → assisted intake → assisted schedule → supervised (only voyage-record logging ever auto; concern-flagging always human) |
+| `src/ferry/operation.cljc` | **OperationActor** -- langgraph StateGraph |
+| `src/ferry/sim.cljc` | demo driver |
+| `test/ferry/*_test.cljc` | governor contract · phase invariants · store parity · registry conformance · facts coverage · scope-exclusion self-trip regression |
+
+## Maturity
+
+`:implemented` -- `FerryOperationsAdvisor` + `Maritime Safety Governor`
+run as real, tested code (see `Run` above), promoted from the
+originally-published `:blueprint`-tier scaffold (this repo pre-existed
+this R0 build with only boilerplate docs + `blueprint.edn`), following
+the SAME governed-actor architecture as the other actors across this
+fleet. See [`docs/adr/0001-architecture.md`](docs/adr/0001-architecture.md)
+for the history and design.
+
 ## License
 
 AGPL-3.0-or-later.
