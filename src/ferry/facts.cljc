@@ -29,7 +29,15 @@
   Coverage is reported HONESTLY (see `coverage`), the same discipline
   every sibling actor's `facts` namespace uses: a jurisdiction not in
   this table has NO spec-basis, full stop -- the advisor must not
-  fabricate one, and the governor holds if it tries.")
+  fabricate one, and the governor holds if it tries.
+
+  Citation verified 2026-07-22: PHL's Maritime Industry Authority
+  (MARINA) directly confirmed as the Passenger Ship Safety Certificate
+  issuing authority via MARINA's own hosted Revised Implementing Rules
+  and Regulations of Republic Act No. 9295 (the Domestic Shipping
+  Development Act of 2004, marina.gov.ph), which lists 'Passenger Ship
+  Safety Certificate' among the Ship Safety Certificates required for
+  domestic vessels. HIGH confidence, read directly (pdftotext).")
 
 (def catalog
   "iso3 -> requirement map. `:required-evidence` is the passenger-vessel
@@ -67,6 +75,14 @@
           :owner-authority "Norwegian Maritime Authority (NMA / Sjøfartsdirektoratet)"
           :legal-basis "Norwegian Ship Safety and Security Act; SOLAS Chapter III"
           :provenance "https://www.sdir.no/en/"
+          :required-evidence ["passenger-ship-safety-certificate"
+                              "flag-state registry / vessel record"
+                              "life-saving-appliance (LSA) inspection record"
+                              "stability and load-line certificate"]}
+   "PHL" {:name "Philippines"
+          :owner-authority "Maritime Industry Authority (MARINA)"
+          :legal-basis "Republic Act No. 9295 (Domestic Shipping Development Act of 2004) and its Revised Implementing Rules and Regulations -- Passenger Ship Safety Certificate among the required Ship Safety Certificates"
+          :provenance "https://marina.gov.ph/wp-content/uploads/2018/06/Revised-IRR-of-RA-9295.pdf"
           :required-evidence ["passenger-ship-safety-certificate"
                               "flag-state registry / vessel record"
                               "life-saving-appliance (LSA) inspection record"
