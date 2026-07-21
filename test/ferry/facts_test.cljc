@@ -6,10 +6,10 @@
   (is (some? (facts/spec-basis "JPN")))
   (is (string? (:provenance (facts/spec-basis "JPN")))))
 
-(deftest all-four-seeded-jurisdictions-have-required-evidence
+(deftest all-five-seeded-jurisdictions-have-required-evidence
   ;; every seeded passenger-vessel jurisdiction actually has a real
   ;; required-evidence set reported honestly here
-  (doseq [iso3 ["JPN" "USA" "GBR" "NOR"]]
+  (doseq [iso3 ["JPN" "USA" "GBR" "NOR" "PHL"]]
     (is (seq (:required-evidence (facts/spec-basis iso3))) (str iso3 " required-evidence"))
     (is (string? (:legal-basis (facts/spec-basis iso3))) (str iso3 " legal-basis"))))
 
