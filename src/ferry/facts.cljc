@@ -37,7 +37,72 @@
   and Regulations of Republic Act No. 9295 (the Domestic Shipping
   Development Act of 2004, marina.gov.ph), which lists 'Passenger Ship
   Safety Certificate' among the Ship Safety Certificates required for
-  domestic vessels. HIGH confidence, read directly (pdftotext).")
+  domestic vessels. HIGH confidence, read directly (pdftotext).
+
+  Citation verified 2026-07-23: GRC. Two sources read directly this
+  session:
+  (1) EUR-Lex CELEX:32009L0045 (Directive 2009/45/EC of 6 May 2009 on
+  safety rules and standards for passenger ships (Recast), binding on
+  Greece as an EU/EEA member state; EUR-Lex marks it 'In force', with a
+  current consolidated version dated 31/07/2022). Its Annex I Chapter
+  III, headed 'LIFE SAVING APPLIANCES', states verbatim: 'All above
+  appliances, including their launching appliances where applicable,
+  shall comply with the regulations of Chapter III of the Annex to the
+  1974 SOLAS Convention, as amended...' -- i.e. this Directive's
+  passenger-ship regime is a direct EU-law implementation of SOLAS
+  Chapter III, the same narrow angle as every other entry in this
+  catalog. Article 13 requires: 'All new and existing passenger ships
+  shall be provided with a Passenger Ship Safety Certificate in
+  compliance with this Directive... issued by the Administration of
+  the flag State after an initial survey'.
+  (2) The Greek Ministry of Maritime Affairs and Insular Policy's own
+  site (ynanp.gr), specifically the page filed under Κλάδος Ελέγχου
+  Πλοίων (Ship Inspection Branch) -> Διεύθυνση Μελετών & Κατασκευών
+  Πλοίων (ΔΙΜΕΚΑΠ) -> Συντονισμού & Καταμέρτησης -> Πιστοποιητικά
+  Ασφάλειας -> 'Κοινοτική Οδηγία 2009 45' ('Community Directive
+  2009/45'), which lists Π.Δ. 20/2012 (ΦΕΚ Α' 46/2012) verbatim as:
+  'Τροποποίηση διατάξεων του π.δ. 103/1999 «Κανόνες και πρότυπα
+  ασφαλείας για τα επιβατηγά πλοία σύμφωνα με την Οδηγία 98/18/ΕΚ του
+  Συμβουλίου της 17ης Μαρτίου 1998» (Α΄ 110), όπως ισχύει μετά την
+  τροποποίησή του με τα π.δ. 309/2003 (Α΄ 261), 3/2005 (Α΄2) και
+  66/2005 (Α΄100)...' (own translation: 'Amendment of provisions of
+  Presidential Decree 103/1999 \"Rules and safety standards for
+  passenger ships in accordance with Council Directive 98/18/EC of the
+  Council of 17 March 1998\" (Gov't Gazette A'110), as in force after
+  its amendment by Presidential Decrees 309/2003 (A'261), 3/2005 (A'2)
+  and 66/2005 (A'100)...'). This is the Ministry's OWN filing of Π.Δ.
+  103/1999 (as amended) under its 'Directive 2009/45' heading -- direct
+  confirmation that this Presidential Decree lineage is Greece's
+  national transposition instrument (Directive 2009/45/EC recast and
+  replaced 98/18/EC; Article 14 of 2009/45/EC provides that references
+  to the repealed 98/18/EC 'shall be construed as references to this
+  Directive'). A sibling page in the SAME certificate-category branch
+  ('Πιστοποιητικά Ασφάλειας -> Solas -> Επιβατηγά', i.e. 'Safety
+  Certificates -> SOLAS -> Passenger [ships]') lists IMO SOLAS
+  amendment resolutions (MSC.338(91), MSC.344(91), MSC.395(95)),
+  confirming this exact ΥΝΑΝΠ branch (Κλάδος Ελέγχου Πλοίων / ΔΙΜΕΚΑΠ) is
+  the SOLAS passenger-ship certification authority; enforcement/vessel
+  inspection is carried out via the Hellenic Coast Guard (Λιμενικό Σώμα
+  - Ελληνική Ακτοφυλακή), which sits under the same Ministry per
+  ynanp.gr's own org chart ('Αρχηγείο Λιμενικού Σώματος - Ελληνικής
+  Ακτοφυλακής').
+  DISCLOSURE: both eur-lex.europa.eu and ynanp.gr/hcg.gr returned
+  automated bot-detection challenges to direct fetch this session
+  (EUR-Lex: AWS WAF 'x-amzn-waf-action: challenge'; ynanp.gr/hcg.gr:
+  Akamai 403). Per this fleet's hard rule against bypassing such
+  challenges, both pages above were instead read from Internet Archive
+  Wayback Machine snapshots (eur-lex.europa.eu snapshot dated
+  2025-11-19; ynanp.gr snapshot dated 2020-08-09/2020-09-21) -- content
+  quoted above was read directly from those archived captures, not
+  fabricated. MEDIUM-HIGH confidence: the EU Directive text is current
+  (EUR-Lex 'in force' status confirmed live via response headers even
+  though body content came from the archive); the Greek P.D. citation
+  reflects the Ministry's own most recently observed (2020) filing and
+  was not independently cross-checked against a live current ynanp.gr
+  page or the ΦΕΚ text of Π.Δ. 103/1999 itself (that PDF was not found
+  in the Wayback Machine) -- a reviewer with live access to ynanp.gr
+  should confirm no newer amending Π.Δ. has since superseded Π.Δ.
+  20/2012 in this category.")
 
 (def catalog
   "iso3 -> requirement map. `:required-evidence` is the passenger-vessel
@@ -83,6 +148,14 @@
           :owner-authority "Maritime Industry Authority (MARINA)"
           :legal-basis "Republic Act No. 9295 (Domestic Shipping Development Act of 2004) and its Revised Implementing Rules and Regulations -- Passenger Ship Safety Certificate among the required Ship Safety Certificates"
           :provenance "https://marina.gov.ph/wp-content/uploads/2018/06/Revised-IRR-of-RA-9295.pdf"
+          :required-evidence ["passenger-ship-safety-certificate"
+                              "flag-state registry / vessel record"
+                              "life-saving-appliance (LSA) inspection record"
+                              "stability and load-line certificate"]}
+   "GRC" {:name "Greece"
+          :owner-authority "Υπουργείο Ναυτιλίας και Νησιωτικής Πολιτικής (Ministry of Maritime Affairs and Insular Policy, ΥΝΑΝΠ) -- Κλάδος Ελέγχου Πλοίων (Ship Inspection Branch) / ΔΙΜΕΚΑΠ, enforced via the Hellenic Coast Guard (Λιμενικό Σώμα - Ελληνική Ακτοφυλακή)"
+          :legal-basis "Π.Δ. 103/1999 'Κανόνες και πρότυπα ασφαλείας για τα επιβατηγά πλοία' (ΦΕΚ Α' 110/1999), transposing Council Directive 98/18/EC -- recast as Directive 2009/45/EC (Annex I Chapter III implements SOLAS Chapter III life-saving appliances; Article 13 requires a Passenger Ship Safety Certificate) -- as amended by Π.Δ. 309/2003 (Α' 261), Π.Δ. 3/2005 (Α' 2), Π.Δ. 66/2005 (Α' 100) and Π.Δ. 20/2012 (Α' 46)"
+          :provenance "https://www.ynanp.gr/el/gia-ton-polith/nomo8esia/nomothesia-klados-elenchou-emporikon-ploemporikon-ploion/nomothesia-kep-dieuthynse-meleton-kataskdimekap-/dimekap-syntonismou-katamerteses/dimekap-sk-pistopoietika-asphaleias/dimekap-sk-pistopoietika-asphaleias-koin2009-45/"
           :required-evidence ["passenger-ship-safety-certificate"
                               "flag-state registry / vessel record"
                               "life-saving-appliance (LSA) inspection record"
