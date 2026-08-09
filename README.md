@@ -94,9 +94,10 @@ bug class this build fixes by construction.
 ## Run
 
 ```bash
-clojure -M:dev:run     # walk the happy paths + every HARD-hold scenario through the actor
-clojure -M:dev:test    # governor contract · phase invariants · store parity · registry conformance · facts coverage · scope-exclusion regression
-clojure -M:lint        # clj-kondo (errors fail; CI mirrors this)
+clojure -M:dev:run          # walk the happy paths + every HARD-hold scenario through the actor
+clojure -M:dev:render-html  # build-time operator console via REAL actor (flagship item 2)
+clojure -M:dev:test         # governor contract · phase invariants · store parity · registry conformance · facts coverage · scope-exclusion regression
+clojure -M:lint             # clj-kondo (errors fail; CI mirrors this)
 ```
 
 ## Layout
@@ -111,6 +112,7 @@ clojure -M:lint        # clj-kondo (errors fail; CI mirrors this)
 | `src/ferry/phase.cljc` | **Phase 0→3** -- read-only → assisted intake → assisted schedule → supervised (only voyage-record logging ever auto; concern-flagging always human) |
 | `src/ferry/operation.cljc` | **OperationActor** -- langgraph StateGraph |
 | `src/ferry/sim.cljc` | demo driver |
+| `src/ferry/render_html.clj` | build-time `docs/samples/operator-console.html` via the real actor (flagship item 2) |
 | `test/ferry/*_test.cljc` | governor contract · phase invariants · store parity · registry conformance · facts coverage · scope-exclusion self-trip regression |
 
 ## Maturity
