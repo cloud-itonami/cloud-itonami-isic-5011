@@ -35,7 +35,7 @@
   (that is `ferry.operation`'s governed ops, always human-gated for
   anything beyond routine voyage-record logging -- see README
   `Actuation`)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (defn- unsigned-certificate
   "Every certificate this actor produces is UNSIGNED -- signature (i.e.
@@ -106,7 +106,7 @@
     (throw (ex-info "schedule-sailing-operation: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "schedule-sailing-operation: sequence must be >= 0" {})))
-  (let [schedule-number (str (str/upper-case jurisdiction) "-SCHEDULE-" (zero-pad sequence 6))
+  (let [schedule-number (str (str/upper jurisdiction) "-SCHEDULE-" (zero-pad sequence 6))
         record {"record_id" schedule-number
                 "kind" "sailing-schedule-draft"
                 "sailing_id" sailing-id

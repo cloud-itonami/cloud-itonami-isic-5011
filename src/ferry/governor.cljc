@@ -81,7 +81,7 @@
                                    SAME 'check a dedicated boolean, not
                                    status' discipline every prior
                                    governor's guards establish."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [ferry.registry :as registry]
             [ferry.store :as store]))
 
@@ -135,7 +135,7 @@
   "The full scannable text of a proposal -- summary + rationale + the
   printed :value map -- lowercased once for a case-insensitive scan."
   [proposal]
-  (str/lower-case (str (:summary proposal) " " (:rationale proposal) " "
+  (str/lower (str (:summary proposal) " " (:rationale proposal) " "
                        (pr-str (:value proposal)))))
 
 ;; ----------------------------- checks -----------------------------

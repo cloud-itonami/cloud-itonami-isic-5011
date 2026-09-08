@@ -19,7 +19,7 @@
   Usage: `clojure -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
   (:require [jp-go-dds.skin]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [ferry.store :as store]
             [ferry.operation :as op]
             [ferry.phase :as phase]
