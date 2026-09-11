@@ -1,5 +1,5 @@
 (ns ferry.sim
-  "Demo driver -- `clojure -M:dev:run`. Walks a clean sailing through
+  "Demo driver -- `kbb -M:dev:run`. Walks a clean sailing through
   voyage-record logging -> sailing-schedule coordination (escalate/
   approve/commit) -> maritime-safety-concern filing (ALWAYS escalates/
   approve/commit) -> maintenance coordination (escalate/approve/commit),

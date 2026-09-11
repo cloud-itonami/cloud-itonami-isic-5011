@@ -94,10 +94,10 @@ bug class this build fixes by construction.
 ## Run
 
 ```bash
-clojure -M:dev:run          # walk the happy paths + every HARD-hold scenario through the actor
-clojure -M:dev:render-html  # build-time operator console via REAL actor (flagship item 2)
-clojure -M:dev:test         # governor contract · phase invariants · store parity · registry conformance · facts coverage · scope-exclusion regression
-clojure -M:lint             # clj-kondo (errors fail; CI mirrors this)
+kbb -M:dev:run          # walk the happy paths + every HARD-hold scenario through the actor
+kbb -M:dev:render-html  # build-time operator console via REAL actor (flagship item 2)
+kbb -M:dev:test         # governor contract · phase invariants · store parity · registry conformance · facts coverage · scope-exclusion regression
+kbb -M:lint             # clj-kondo (errors fail; CI mirrors this)
 ```
 
 ## Layout
