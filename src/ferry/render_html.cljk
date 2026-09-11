@@ -6,7 +6,7 @@
   generator. This namespace drives the REAL actor stack
   (`ferry.operation` -> `ferry.governor` -> `ferry.store`) through a
   scenario adapted from this repo's own `ferry.sim` demo driver
-  (`clojure -M:dev:run`, confirmed BEFORE writing this file to produce
+  (`kbb -M:dev:run`, confirmed BEFORE writing this file to produce
   a sensible ledger against the real seeded sailing ids `sail-1`..
   `sail-6` -- ids DO match `ferry.store/demo-data`, so it was safe to
   reuse rather than author from scratch), trimmed to a representative
@@ -16,7 +16,7 @@
   identical across reruns against the same seed (verify by diffing two
   consecutive runs).
 
-  Usage: `clojure -M:dev:render-html [out-file]`
+  Usage: `kbb -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
   (:require [jp-go-dds.skin]
             [kotoba.lang.text :as str]
@@ -153,7 +153,7 @@
      "<main>\n"
      "  <section class=\"card\">\n"
      "    <h2>Sailings</h2>\n"
-     "    <p class=\"muted\">Demo snapshot — build-time-generated from <code>ferry.store</code> via <code>ferry.render-html</code> (<code>clojure -M:dev:render-html</code>). HARD holds this run: "
+     "    <p class=\"muted\">Demo snapshot — build-time-generated from <code>ferry.store</code> via <code>ferry.render-html</code> (<code>kbb -M:dev:render-html</code>). HARD holds this run: "
      hard-holds ".</p>\n"
      "    <table>\n"
      "      <thead><tr><th>Sailing</th><th>Vessel</th><th>Route</th><th>Jurisdiction</th><th>IMO</th><th>Lifecycle</th><th>Last op status</th></tr></thead>\n"

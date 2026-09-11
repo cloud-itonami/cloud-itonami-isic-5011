@@ -180,7 +180,7 @@ approval path.
 - `MemStore` || `DatomicStore` parity is proven by
   `test/ferry/store_contract_test.cljk`.
 - 46 tests / 272 assertions pass; lint is clean (0 errors, 0 warnings);
-  the demo (`clojure -M:dev:run`) walks the happy paths plus every
+  the demo (`kbb -M:dev:run`) walks the happy paths plus every
   HARD-hold scenario (no spec-basis, invalid IMO, certification
   incomplete on all three non-logging ops, already scheduled) and a
   low-confidence-but-governor-clean escalation, end-to-end.
