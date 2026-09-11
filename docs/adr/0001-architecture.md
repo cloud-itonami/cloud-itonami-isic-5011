@@ -86,11 +86,11 @@ in DIFFERENT words than any of those phrases -- it attributes final
 departure-clearance judgment to "the vessel master and the maritime-
 safety authority" rather than restating what the actor itself does not
 do, so no negation of the exact trigger phrase ever appears either.
-`test/ferry/scope_exclusion_test.cljc` is a dedicated regression test
+`test/ferry/scope_exclusion_test.cljk` is a dedicated regression test
 sweeping every op x every demo sailing (including the fault-reported +
 weather-hold-active one) through the DEFAULT mock advisor and asserting
 none of the resulting proposals trip `:scope-exclusion-sail-clearance`;
-`test/ferry/governor_test.cljc` separately proves the check is not
+`test/ferry/governor_test.cljk` separately proves the check is not
 vacuous (a hand-crafted proposal containing each phrase verbatim IS
 hard-blocked).
 
@@ -178,7 +178,7 @@ approval path.
   fleet, filling in a pre-existing `:blueprint`-tier repo rather than
   scaffolding a new one.
 - `MemStore` || `DatomicStore` parity is proven by
-  `test/ferry/store_contract_test.cljc`.
+  `test/ferry/store_contract_test.cljk`.
 - 46 tests / 272 assertions pass; lint is clean (0 errors, 0 warnings);
   the demo (`clojure -M:dev:run`) walks the happy paths plus every
   HARD-hold scenario (no spec-basis, invalid IMO, certification
