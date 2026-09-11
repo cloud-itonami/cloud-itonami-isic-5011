@@ -104,15 +104,15 @@ clojure -M:lint             # clj-kondo (errors fail; CI mirrors this)
 
 | File | Role |
 |---|---|
-| `src/ferry/store.cljc` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db` via `kotoba-lang/langchain-store`) + append-only audit ledger + schedule/concern/maintenance history |
-| `src/ferry/registry.cljc` | Sailing-schedule / concern-filing / maintenance-coordination draft records, plus the self-contained `imo-number-valid?` structural check (honest reapplication of `cloud-itonami-isic-5020`'s SOLAS / IMO A.600(15) scheme) |
-| `src/ferry/facts.cljc` | Per-jurisdiction passenger-vessel safety-certification catalog with an official spec-basis citation per entry, honest coverage reporting |
-| `src/ferry/ferryadvisor.cljc` | **FerryOperationsAdvisor** -- `mock-advisor` ‖ `llm-advisor`; voyage-record / schedule / concern / maintenance proposals |
-| `src/ferry/governor.cljc` | **Maritime Safety Governor** -- 7 HARD checks (op-not-allowed · effect-not-propose · scope-exclusion-sail-clearance (permanent) · certification-incomplete · imo-number-invalid · no-spec-basis · already-scheduled) + 1 high-stakes gate + 1 soft confidence gate |
-| `src/ferry/phase.cljc` | **Phase 0→3** -- read-only → assisted intake → assisted schedule → supervised (only voyage-record logging ever auto; concern-flagging always human) |
-| `src/ferry/operation.cljc` | **OperationActor** -- langgraph StateGraph |
-| `src/ferry/sim.cljc` | demo driver |
-| `src/ferry/render_html.clj` | build-time `docs/samples/operator-console.html` via the real actor (flagship item 2) |
+| `src/ferry/store.cljk` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db` via `kotoba-lang/langchain-store`) + append-only audit ledger + schedule/concern/maintenance history |
+| `src/ferry/registry.cljk` | Sailing-schedule / concern-filing / maintenance-coordination draft records, plus the self-contained `imo-number-valid?` structural check (honest reapplication of `cloud-itonami-isic-5020`'s SOLAS / IMO A.600(15) scheme) |
+| `src/ferry/facts.cljk` | Per-jurisdiction passenger-vessel safety-certification catalog with an official spec-basis citation per entry, honest coverage reporting |
+| `src/ferry/ferryadvisor.cljk` | **FerryOperationsAdvisor** -- `mock-advisor` ‖ `llm-advisor`; voyage-record / schedule / concern / maintenance proposals |
+| `src/ferry/governor.cljk` | **Maritime Safety Governor** -- 7 HARD checks (op-not-allowed · effect-not-propose · scope-exclusion-sail-clearance (permanent) · certification-incomplete · imo-number-invalid · no-spec-basis · already-scheduled) + 1 high-stakes gate + 1 soft confidence gate |
+| `src/ferry/phase.cljk` | **Phase 0→3** -- read-only → assisted intake → assisted schedule → supervised (only voyage-record logging ever auto; concern-flagging always human) |
+| `src/ferry/operation.cljk` | **OperationActor** -- langgraph StateGraph |
+| `src/ferry/sim.cljk` | demo driver |
+| `src/ferry/render_html.cljk` | build-time `docs/samples/operator-console.html` via the real actor (flagship item 2) |
 | `test/ferry/*_test.cljc` | governor contract · phase invariants · store parity · registry conformance · facts coverage · scope-exclusion self-trip regression |
 
 ## Maturity

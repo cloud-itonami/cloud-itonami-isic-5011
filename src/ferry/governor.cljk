@@ -118,7 +118,7 @@
 ;; default rationale/disclaimer text is written to describe the
 ;; boundary in DIFFERENT words (never restating one of these exact
 ;; phrases, not even inside a negation), which is the actual fix: see
-;; `test/ferry/scope_exclusion_test.cljc`'s regression test asserting
+;; `test/ferry/scope_exclusion_test.cljk`'s regression test asserting
 ;; every default mock-advisor proposal, across every op and every demo
 ;; sailing, never trips this check.
 (def scope-exclusion-phrases
