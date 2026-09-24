@@ -17,7 +17,7 @@
   one of `ferry.governor/scope-exclusion-phrases` verbatim (even inside
   a negation, e.g. 'does not override the weather-hold' still literally
   contains 'override the weather-hold'), this test fails."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [ferry.ferryadvisor :as ferryadvisor]
             [ferry.governor :as governor]
             [ferry.store :as store]))
