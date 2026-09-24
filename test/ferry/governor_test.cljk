@@ -8,7 +8,7 @@
   `governor_contract_test.cljc` for the graph-level flows, and
   `scope_exclusion_test.cljc` for the dedicated regression proving the
   DEFAULT mock advisor never trips the scope-exclusion check)."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [ferry.governor :as governor]
             [ferry.store :as store]))
 
