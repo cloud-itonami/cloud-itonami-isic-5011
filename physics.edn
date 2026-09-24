@@ -1,0 +1,33 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:dev:physics` runs it.
+;;
+;; README "Robotics premise": robots perform the physical work of a sea and
+;; coastal passenger ferry operator (ISIC 5011) -- hull inspection, vessel
+;; maintenance, safety-equipment testing. Here: the robot running the weekly
+;; fire-main test (how much head the fire pump must deliver to the top-deck
+;; hydrant as more hoses open), and an engine-room arm lifting maintenance
+;; parts out of the engine.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-5011"
+ :cases
+ [{:id :fire-main-test-top-deck-hydrant
+   :kind :pipe-flow
+   :procedure "during the fire-main test the fire pump feeds the top-deck hydrant through 120 m of 100 mm fire main rising 20 m; the flow (one to five hoses open) is swept"
+   :params {:diameter-m 0.10 :length-m 120.0 :roughness-m 1.5e-4
+            :density-kg-m3 1025.0 :viscosity-pa-s 1.1e-3 :pump-efficiency 0.65 :elevation-m 20.0}
+   :sweep {:param :q-m3s :values [0.0033 0.0067 0.0100 0.0133 0.0167]}
+   :quantity :head-m
+   :limit {:max 30.0 :basis "estimate: head left for the hose after keeping ~0.3-0.4 MPa residual at the hydrant (the order of the SOLAS II-2 hydrant minimum for passenger ships; replace with the exact regulation value) out of a ~70 m fire pump; the ~200 L/min per hose is an estimate too"}
+   :boundary {:lo 0.001 :hi 0.04}}
+  {:id :engine-room-part-lift
+   :kind :manipulator
+   :procedure "engine-room arm lifts a maintenance part (valve cover, fuel injector, pump casing) off the engine onto the workbench"
+   :params {:l1-m 0.60 :l2-m 0.55 :m1-kg 7.0 :m2-kg 5.0
+            :from [0.70 0.00] :to [0.40 0.60] :duration-s 3.0 :steps 500}
+   :sweep {:param :payload-kg :values [5.0 10.0 15.0 20.0 25.0]}
+   :quantity :peak-tau1-nm
+   :limit {:max 180.0 :basis "estimate: continuous shoulder torque of a ~15 kg-payload collaborative arm"}
+   :boundary {:lo 0.5 :hi 60.0}}]}
