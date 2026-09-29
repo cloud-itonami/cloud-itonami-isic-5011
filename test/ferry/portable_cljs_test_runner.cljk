@@ -1,7 +1,7 @@
 (ns ferry.portable-cljs-test-runner
   "PRIMARY automated quality gate for this actor under a real
   ClojureScript host (cljs.main --target node) -- the runtime-priority
-  rule this workspace's CLAUDE.md and skill `build-actor` establish:
+  rule this workspace's AGENTS.md and skill `build-actor` establish:
 
       kotoba wasm runtime  >  clojurewasm  >  ClojureScript  >  nbb
       (JVM / babashka are last-resort compat, not the design target)

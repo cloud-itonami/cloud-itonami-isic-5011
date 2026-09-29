@@ -122,7 +122,7 @@ applies to it directly.
 All source AND test files are `.cljc` (not `.clj`), including a
 `ferry.portable-cljs-test-runner` + `:cljs` deps.edn alias, mirroring
 `cloud-itonami-isic-6511`'s current-generation convention and this
-workspace's CLAUDE.md runtime priority (`kotoba wasm > clojurewasm >
+workspace's AGENTS.md runtime priority (`kotoba wasm > clojurewasm >
 ClojureScript > nbb`, JVM/bb as last-resort compat) -- a deliberate
 departure from `cloud-itonami-isic-5020`'s `.clj`-only test suite, which
 predates that mandate.

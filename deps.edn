@@ -36,7 +36,7 @@
         ;; schema + field-spec entity helpers), ADR-2607141600 -- new
         ;; stores in this fleet require this rather than hand-rolling the
         ;; enc/dec + schema/pull boilerplate (`kotoba-lang/root`
-        ;; CLAUDE.md, skill `build-actor`).
+        ;; AGENTS.md, skill `build-actor`).
         io.github.kotoba-lang/langchain-store
         {:local/root "../../kotoba-lang/langchain-store"}}
  :aliases
@@ -65,7 +65,7 @@
          :exec-fn cognitect.test-runner.api/test}
   ;; PRIMARY gate: the same portable .cljc suite under a real
   ;; ClojureScript host (runtime priority: cljs first, JVM compat) --
-  ;; kotoba-lang/root CLAUDE.md: kotoba wasm > clojurewasm > cljs > nbb >
+  ;; kotoba-lang/root AGENTS.md: kotoba wasm > clojurewasm > cljs > nbb >
   ;; (jvm / bb last resort).
   ;;   kbb -Sdeps '{:paths ["src" "test"]}' -M:dev:cljs \
   ;;     -m cljs.main --target node -m ferry.portable-cljs-test-runner
